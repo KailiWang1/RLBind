@@ -1,0 +1,47 @@
+This is a demo of the input features construction protocol with output format description.
+
+INPUT: RNA structure file
+OUTPUT: model input features file
+
+STEP 1: prepare RNA fasta file and RNA monomer structure file
+Run process_file.ipynb
+INPUT:  - pdb/1uud.pdb          - RNA structure
+OUTPUT: - graph_pdb/1uud.pdb      - RNA monomer structure
+      - fasta/1uud.fasta       - RNA fasta file
+
+The order of steps 2 to 4 can be changed or these steps can be done simultaneously
+STEP 2: calculate two network topological properties (closeness and degree) by MATLAB (see refs [1] for more details)
+1) calculate RNA static contact network files and nodes closeness centrality using the RNA monomer structure by a default cutoff. 
+Run closeness/main.m 
+INPUT:  - closeness/Inputs/1uud.pdb            - RNA monomer structure
+OUTPUT: - closeness/Outputs/1uud_mapping.txt      - Output file residues vs PDB file residues
+      - closeness/Outputs/1uud_contact.dat      - Static contact network by cutoff
+      - closeness/Outputs/1uud_closeness.txt     - Nodes closeness centrality
+2) calculate the degree of a graph based on the adjacency matrix.
+Run degree/main.m
+INPUT:  - degree/Inputs/1uud_contact.dat        - Adjacency matrix file
+OUTPUT: - degree/Outputs/1uud_degree.txt        - Nodes degree centrality      
+      
+STEP 3: calculate predicted accessible surface areas
+1) Download the RNAsol software or used the online software (https://yanglab.nankai.edu.cn/RNAsol/) to calculate the solvent accessible surface areas of each nucleotide in RNAs.
+INPUT:  - fasta/1uud.fasta     - RNA fasta files
+OUTPUT: - features/ASA/1uud.txt  - RNA accessible surface area files      
+     
+STEP 4: calculate the evolutional conservation scores for each nucleotide in RNA
+1) Obtain the homologous sequences similar to the selected RNA structure of a researched sequence using the BLASTN with the E-value of 0.001 by searching against a non-redundant nucleotide database. You can install BLASTN, nt database or use the online BLASTN server (https://blast.ncbi.nlm.nih.gov/Blast.cgi) to generate multiple sequence alignment files.
+INPUT:  - fasta/1uud.fasta                  - RNA fasta file
+OUTPUT: - features/conservation/ORIMSA/1uud.txt    - RNA multiple sequence alignment file
+2) Format transformation of multiple sequence alignment file.
+Run process_file.ipynb
+OUTPUT: - features/conservation/ORIMSA/1uud.txt    - RNA multiple sequence alignment file
+OUTPUT: - features/conservation/MSA/1uud.txt      - RNA multiple sequence alignment file
+3) Calculate the evolutionary conservation scores using online software ConSurf-DB (http://consurf.tau.ac.il (old ConSurf website)).
+INPUT:  - graph_pdb/1uud.pdb                    - RNA monomer structure       
+      - features/conservation/MSA/1uud.txt          - RNA multiple sequence alignment file
+OUTPUT: - features/conservation/1uud/consurf.grades     - RNA evolutional conservation file
+
+STEP 5: RNA input features integration
+Run process_file.ipynb
+
+Reference
+[1] Wang K, Jian Y, Wang H, et al. RBind: computational network method to predict RNA binding sites. Bioinformatics 2018;34:3131-3136.
