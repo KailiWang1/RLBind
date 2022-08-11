@@ -221,7 +221,7 @@ def train(model, train_dataset,test19, save=None, batch_size=32, train_number=6,
         v_loss, p_max, r_max, auc, t_max, mcc, v_predictions,v_labels, v_predicts, nucle_nums, rna_names= v_epoch(model= model_wrapper, load=valid_loader,is_test=(not valid_loader), validnum = valid_id)
 ### for the test set
         test19_loss, p_max19, r_max19, auc19, t_max19, mcc19, predictions19,v_labels19, v_predicts19, nucle_nums19, rna_names19 = test_epoch(model= model_wrapper, load=test19_loader,is_test=test19_loader)
-        print('Epoch:%02d,Precision19:%0.4f,Recall19:%0.4f,AUC19:%0.4f,T_max19:%0.4f,MCC19:%0.4f\n'%((epoch+1),test19_loss,p_max19, r_max19, auc19,t_max19, mcc19))
+        print('Epoch:%02d,Precision19:%0.4f,Recall19:%0.4f,AUC19:%0.4f,T_max19:%0.4f,MCC19:%0.4f\n'%((epoch+1), p_max19, r_max19, auc19,t_max19, mcc19))
  
         if p_max > best_p_max and r_max > best_r_max:
             best_p_max = p_max
