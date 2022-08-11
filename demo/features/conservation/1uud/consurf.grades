@@ -1,0 +1,48 @@
+	 Nucleic Acid Conservation Scores
+	=======================================
+
+- POS: The position of the nucleotide in the SEQRES derived sequence.
+- SEQ: The SEQRES derived sequence in one letter code.
+- ATOM: The ATOM derived sequence, including the nucleotide's positions as they appear in the PDB file and the chain identifier.
+- SCORE: The normalized conservation scores.
+- COLOR: The color scale representing the conservation scores (9 - conserved, 1 - variable).
+- CONFIDENCE INTERVAL: When using the bayesian method for calculating rates, a confidence interval is assigned to each of the inferred evolutionary conservation scores.
+- CONFIDENCE INTERVAL COLORS: When using the bayesian method for calculating rates. The color scale representing the lower and upper bounds of the confidence interval.
+- MSA DATA: The number of aligned sequences having an nucleotide (non-gapped) from the overall number of sequences at each position.
+- NUCLEOTIDE VARIETY: The nucleotide variety at each position of the multiple sequence alignment.
+
+ POS	 SEQ	    ATOM	SCORE		COLOR	CONFIDENCE INTERVAL	CONFIDENCE INTERVAL COLORS	MSA DATA	NUCLEOTIDE VARIETY
+    	    	        	(normalized)	        	               
+   1	   G	     G17:B	 2.192		  1*	-13460.000,5674.000			    9,1			 101/101	G
+   2	   G	     G18:B	 1.822		  1*	-13460.000,5674.000			    9,1			 101/101	G
+   3	   C	     C19:B	-0.261		  6*	-13460.000,5674.000			    9,1			 101/101	C
+   4	   A	     A20:B	-1.378		  9*	-13460.000,5674.000			    9,1			 101/101	A
+   5	   G	     G21:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+   6	   A	     A22:B	-1.378		  9*	-13460.000,5674.000			    9,1			 101/101	A
+   7	   T	     U23:B	-0.854		  8*	-13460.000,5674.000			    9,1			 101/101	T
+   8	   C	     C24:B	-0.261		  6*	-13460.000,5674.000			    9,1			 101/101	C
+   9	   T	     U25:B	-0.854		  8*	-13460.000,5674.000			    9,1			 101/101	T
+  10	   G	     G26:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  11	   A	     A27:B	-1.378		  9*	-13460.000,5674.000			    9,1			 101/101	A
+  12	   G	     G28:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  13	   C	     C29:B	-0.261		  6*	-13460.000,5674.000			    9,1			 101/101	C
+  14	   C	     C30:B	-0.261		  6*	-13460.000,5674.000			    9,1			 101/101	C
+  15	   T	     U31:B	-0.854		  8*	-13460.000,5674.000			    9,1			 101/101	T
+  16	   G	     G32:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  17	   G	     G33:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  18	   G	     G34:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  19	   A	     A35:B	-1.378		  9*	-13460.000,5674.000			    9,1			 101/101	A
+  20	   G	     G36:B	 0.715		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  21	   C	     C37:B	-0.261		  6*	-13460.000,5674.000			    9,1			 101/101	C
+  22	   T	     U38:B	-0.835		  8*	-13460.000,5674.000			    9,1			 101/101	T
+  23	   C	     C39:B	-0.244		  6*	-13460.000,5674.000			    9,1			 101/101	C
+  24	   T	     U40:B	-0.835		  8*	-13460.000,5674.000			    9,1			 101/101	T
+  25	   C	     C41:B	-0.244		  6*	-13460.000,5674.000			    9,1			 101/101	C
+  26	   T	     U42:B	-0.835		  8*	-13460.000,5674.000			    9,1			 101/101	T
+  27	   G	     G43:B	 0.727		  3*	-13460.000,5674.000			    9,1			 101/101	G
+  28	   C	     C44:B	 1.286		  1*	-13460.000,5674.000			    9,1			 101/101	C
+  29	   C	     C45:B	 1.336		  1*	-13460.000,5674.000			    9,1			 101/101	C
+
+
+*Below the confidence cut-off - The calculations for this site were performed on less than 6 non-gaped homologue sequences,
+or the confidence interval for the estimated score is equal to- or larger than- 4 color grades.
