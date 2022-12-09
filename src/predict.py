@@ -67,7 +67,6 @@ def predict(model_file,test_data,batch_size,test_index,save=None):
     model = model.cuda()
     p_max,r_max,auc,t_max,mcc,predictions,t_labels,t_predicts,nucle_nums,rna_names=test(model,test_load)
     print('Precision:%0.4f,Recall:%0.4f,AUC:%0.4f,T_max:%0.4f,MCC:%0.4f,cutoff_len:%02d\n'%(p_max, r_max, auc, t_max, mcc, cutoff_seq_len))
-#     print(t_labels,predictions, nucle_nums,rna_names)
     result_dict = {}
     for i in range(len(t_labels)):
         result_dict[nucle_nums[i]]=(rna_names[i],int(t_labels[i]),int(predictions[i]))
