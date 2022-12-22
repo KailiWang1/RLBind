@@ -30,12 +30,8 @@ OUTPUT: - features/ASA/1uud.txt  - RNA accessible surface area files
 STEP 4: calculate the evolutional conservation scores for each nucleotide in RNA
 1) Obtain the homologous sequences similar to the selected RNA structure of a researched sequence using the BLASTN with the E-value of 0.001 by searching against a non-redundant nucleotide database. You can install BLASTN, nt database or use the online BLASTN server (https://blast.ncbi.nlm.nih.gov/Blast.cgi) to generate multiple sequence alignment files.
 INPUT:  - fasta/1uud.fasta                  - RNA fasta file
-OUTPUT: - features/conservation/ORIMSA/1uud.txt    - RNA multiple sequence alignment file
-2) Format transformation of multiple sequence alignment file.
-Run process_file.ipynb
-OUTPUT: - features/conservation/ORIMSA/1uud.txt    - RNA multiple sequence alignment file
-OUTPUT: - features/conservation/MSA/1uud.txt      - RNA multiple sequence alignment file
-3) Calculate the evolutionary conservation scores using online software ConSurf-DB (http://consurf.tau.ac.il (old ConSurf website)).
+OUTPUT: - features/conservation/MSA/1uud.txt    - RNA multiple sequence alignment file
+2) Calculate the evolutionary conservation scores using online software ConSurf-DB (http://consurf.tau.ac.il (old ConSurf website)).
 INPUT:  - graph_pdb/1uud.pdb                    - RNA monomer structure       
       - features/conservation/MSA/1uud.txt          - RNA multiple sequence alignment file
 OUTPUT: - features/conservation/1uud/consurf.grades     - RNA evolutional conservation file
