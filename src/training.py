@@ -216,6 +216,7 @@ def train(model, train_dataset,test19, save=None, batch_size=32, train_number=6,
     optimizer = torch.optim.Adam(model_wrapper.parameters(), lr=0.0001)
     best_p_max = 0.0
     best_r_max = 0.0
+    best_auc =0.0
     for epoch in range(epochs):    ## a epoch of train and valid\
         t_loss = t_epoch(model = model_wrapper, load = train_loader, optimizer = optimizer, epoch = epoch, epochs = epochs, trainnum = split_id)
         v_loss, p_max, r_max, auc, t_max, mcc, v_predictions,v_labels, v_predicts, nucle_nums, rna_names= v_epoch(model= model_wrapper, load=valid_loader,is_test=(not valid_loader), validnum = valid_id)
@@ -223,11 +224,9 @@ def train(model, train_dataset,test19, save=None, batch_size=32, train_number=6,
         test19_loss, p_max19, r_max19, auc19, t_max19, mcc19, predictions19,v_labels19, v_predicts19, nucle_nums19, rna_names19 = test_epoch(model= model_wrapper, load=test19_loader,is_test=test19_loader)
         print('Epoch:%02d,Precision19:%0.4f,Recall19:%0.4f,AUC19:%0.4f,T_max19:%0.4f,MCC19:%0.4f\n'%((epoch+1), p_max19, r_max19, auc19,t_max19, mcc19))
  
-        if p_max > best_p_max and r_max > best_r_max:
-            best_p_max = p_max
-            best_r_max = r_max
+        if auc > best_auc:
+            best_auc = auc
             threadhold = t_max
-            print('The best precision and recall is %2d,%0.4f,%0.4f (threadhold is %0.4f)'%(cutoff_seq_len,best_p_max, best_r_max, threads))
             torch.save(model.state_dict(),os.path.join(save, './model.dat'))
 
 if __name__ == '__main__':
