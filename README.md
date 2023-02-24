@@ -3,7 +3,7 @@
 A deep convolutional neural network-based model by integrating local and global features, sequence and structure properties is constructed to predict RNA-ligand binding sites.
 
 The benchmark datasets can be found in ./data_cache/, the codes for RLBind are available in ./src. And the results and model are saved in ./results. Furthermore, the demo and corresponding documentation files can be found in ./demo. See our paper for more details.
-#### Paper: Wang K, Zhou R, Wu Y, et al. RLBind: a deep learning method to predict RNA–ligand binding sites. Briefings in Bioinformatics, 2023, 24(1), bbac486.
+** Paper:** Wang K, Zhou R, Wu Y, et al. RLBind: a deep learning method to predict RNA–ligand binding sites. Briefings in Bioinformatics, 2023, 24(1), bbac486.
 
 ### Requirements
 - python 3.7
